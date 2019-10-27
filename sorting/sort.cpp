@@ -29,3 +29,26 @@ void heapSort(int arr[], int n) {
         hp.pop();
     }
 }
+
+static int partition(int arr[], int start, int end) {
+    int pivot_idx = start;
+    for(int i=start; i<end; ++i) {
+        if(arr[i] < arr[end]) {
+            swap(arr[i], arr[pivot_idx]);
+            pivot_idx++;
+        }
+    }
+    swap(arr[pivot_idx], arr[end]);
+    return pivot_idx;
+}
+
+static void quickSortUtil(int arr[], int start, int end) {
+    if(start >= end) return ;
+    int partition_idx =partition(arr, start, end);
+    quickSortUtil(arr, start, partition_idx-1);
+    quickSortUtil(arr, partition_idx+1, end);
+}
+
+void quickSort(int arr[], int n) {
+    quickSortUtil(arr, 0, n-1);
+}

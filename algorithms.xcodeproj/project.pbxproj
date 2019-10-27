@@ -100,7 +100,7 @@
 		6A69BFC82365FC9A00BBE616 /* heap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = heap.hpp; path = include/data_structures/heap.hpp; sourceTree = "<group>"; };
 		6A69BFC92365FC9A00BBE616 /* segment_tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = segment_tree.h; path = include/data_structures/segment_tree.h; sourceTree = "<group>"; };
 		6A69BFCA23660AFB00BBE616 /* disjoint_ds.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = disjoint_ds.cpp; sourceTree = "<group>"; };
-		6A69BFCD23660B9100BBE616 /* disjoint_ds.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = disjoint_ds.h; sourceTree = "<group>"; };
+		6A69BFCF2366268600BBE616 /* disjoint_ds.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = disjoint_ds.hpp; path = include/data_structures/disjoint_ds.hpp; sourceTree = "<group>"; };
 		6AA2220D234E359F00C77A13 /* graphs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = graphs; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AA2220F234E359F00C77A13 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		6AA22214234E35B600C77A13 /* graph.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = graph.cpp; sourceTree = "<group>"; };
@@ -226,9 +226,9 @@
 		6A69BFC42365F03700BBE616 /* data_strucutres */ = {
 			isa = PBXGroup;
 			children = (
+				6A69BFCF2366268600BBE616 /* disjoint_ds.hpp */,
 				6A69BFC82365FC9A00BBE616 /* heap.hpp */,
 				6A69BFC92365FC9A00BBE616 /* segment_tree.h */,
-				6A69BFCD23660B9100BBE616 /* disjoint_ds.h */,
 			);
 			name = data_strucutres;
 			sourceTree = "<group>";

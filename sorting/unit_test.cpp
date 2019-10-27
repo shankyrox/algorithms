@@ -11,6 +11,7 @@
 
 extern void bubbleSort(int[], int);
 extern void heapSort(int[], int);
+extern void quickSort(int[], int);
 
 TEST_CASE("Sorting algorithms", "[sort]") {
     int arr[] = {5, 13, 1, 341, 38, 12, 10, 38, 5};
@@ -26,6 +27,13 @@ TEST_CASE("Sorting algorithms", "[sort]") {
     
     SECTION("Sorts array using heap sort") {
         heapSort(arr, size);
+        for(int i=0; i<size; i++) {
+            REQUIRE(arr[i] == sorted_arr[i]);
+        }
+    }
+    
+    SECTION("Sorts array using quick sort") {
+        quickSort(arr, size);
         for(int i=0; i<size; i++) {
             REQUIRE(arr[i] == sorted_arr[i]);
         }
