@@ -16,6 +16,8 @@
 
 extern vector<int> DFS(const vector<vector<int>>&, int, int);
 extern vector<int> BFS(const vector<vector<int>>&, int, int);
+vector<Edge> Kruskals(vector<vector<Edge>>, int);
+vector<Edge> Prims(vector<vector<Edge>>, int);
 
 TEST_CASE("Test graph traversal", "[graphs][bfs_dfs]") {
     // graph from https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
@@ -47,8 +49,9 @@ TEST_CASE("Test graph traversal", "[graphs][bfs_dfs]") {
 
 TEST_CASE("Minimum Spanning Trees", "[graphs][MST]") {
     // graph taken from : https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/
-    // bidirectional weighted graph
-    int arr[9][9] = {
+    constexpr int V = 9;
+    // undirected weighted graph
+    int arr[V][V] = {
         { 0,  4,  0,  0,  0,  0,  0,  8,  0},   // 0
         { 4,  0,  8,  0,  0,  0,  0, 11,  0},   // 1
         { 0,  8,  0,  7,  0,  4,  0,  0,  2},   // 2
@@ -59,13 +62,25 @@ TEST_CASE("Minimum Spanning Trees", "[graphs][MST]") {
         { 8, 11,  0,  0,  0,  0,  1,  0,  7},   // 7
         { 0,  0,  2,  0,  0,  0,  6,  7,  0}    // 8
     };
-    
     REQUIRE(is_symmetrical(arr) == true);
+    vector<Edge> exp_edges = {{0, 1, 4}, {0, 7, 8}, {2, 8, 2}, {2, 3, 7}, {2, 5, 4}};
+    
+    UndirectedWeightedGraph g(arr);
     SECTION("Kruskal's") {
-        
+        vector<Edge> edges_mst = Kruskals(g.getGraph(), V);
+        for(int i=0; i<exp_edges.size(); ++i) {
+            Edge e = {exp_edges[i].dst, exp_edges[i].src, exp_edges[i].wt};
+            REQUIRE((std::find(edges_mst.begin(), edges_mst.end(), exp_edges[i]) != edges_mst.end() ||
+                    std::find(edges_mst.begin(), edges_mst.end(), e) != edges_mst.end()));
+        }
     }
     
-//    SECTION("PRIM's") {
-//
-//    }
+    SECTION("PRIM's") {
+        vector<Edge> edges_mst = Prims(g.getGraph(), V);
+        for(int i=0; i<exp_edges.size(); ++i) {
+            Edge e = {exp_edges[i].dst, exp_edges[i].src, exp_edges[i].wt};
+            REQUIRE((std::find(edges_mst.begin(), edges_mst.end(), exp_edges[i]) != edges_mst.end() ||
+                    std::find(edges_mst.begin(), edges_mst.end(), e) != edges_mst.end()));
+        }
+    }
 }

@@ -25,8 +25,7 @@
 		6A69BFD02366284A00BBE616 /* heap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A69BFBD2365D5B300BBE616 /* heap.cpp */; };
 		6A69BFD223662BC100BBE616 /* graph_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A69BFD123662BC100BBE616 /* graph_tests.cpp */; };
 		6A69BFD42366BD3E00BBE616 /* bfs_dfs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A69BFD32366BD3E00BBE616 /* bfs_dfs.cpp */; };
-		6AA22210234E359F00C77A13 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2220F234E359F00C77A13 /* main.cpp */; };
-		6AA22216234E35B600C77A13 /* graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AA22214234E35B600C77A13 /* graph.cpp */; };
+		6A69BFD52366E28F00BBE616 /* disjoint_ds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A69BFCA23660AFB00BBE616 /* disjoint_ds.cpp */; };
 		6AA2221C234E468600C77A13 /* topological_sort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2221B234E468600C77A13 /* topological_sort.cpp */; };
 /* End PBXBuildFile section */
 
@@ -105,8 +104,6 @@
 		6A69BFD123662BC100BBE616 /* graph_tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = graph_tests.cpp; sourceTree = "<group>"; };
 		6A69BFD32366BD3E00BBE616 /* bfs_dfs.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = bfs_dfs.cpp; sourceTree = "<group>"; };
 		6AA2220D234E359F00C77A13 /* graphs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = graphs; sourceTree = BUILT_PRODUCTS_DIR; };
-		6AA2220F234E359F00C77A13 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		6AA22214234E35B600C77A13 /* graph.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = graph.cpp; sourceTree = "<group>"; };
 		6AA22215234E35B600C77A13 /* graph.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = graph.hpp; sourceTree = "<group>"; };
 		6AA2221B234E468600C77A13 /* topological_sort.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = topological_sort.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -237,8 +234,6 @@
 		6AA2220E234E359F00C77A13 /* graphs */ = {
 			isa = PBXGroup;
 			children = (
-				6AA2220F234E359F00C77A13 /* main.cpp */,
-				6AA22214234E35B600C77A13 /* graph.cpp */,
 				6AA22215234E35B600C77A13 /* graph.hpp */,
 				6AA2221B234E468600C77A13 /* topological_sort.cpp */,
 				6A69BFA62354CDF500BBE616 /* dijkstra.cpp */,
@@ -432,14 +427,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A69BFD52366E28F00BBE616 /* disjoint_ds.cpp in Sources */,
 				6A69BFA72354CDF500BBE616 /* dijkstra.cpp in Sources */,
 				6AA2221C234E468600C77A13 /* topological_sort.cpp in Sources */,
 				6A69BFD42366BD3E00BBE616 /* bfs_dfs.cpp in Sources */,
-				6AA22216234E35B600C77A13 /* graph.cpp in Sources */,
 				6A69BFD223662BC100BBE616 /* graph_tests.cpp in Sources */,
 				6A69BFAB235AEFB200BBE616 /* mst.cpp in Sources */,
 				6A69BFA92354E8DE00BBE616 /* floyd_warshall.cpp in Sources */,
-				6AA22210234E359F00C77A13 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

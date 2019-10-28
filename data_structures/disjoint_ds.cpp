@@ -6,7 +6,7 @@
 //  Copyright © 2019 Shashank Gupta. All rights reserved.
 //
 
-#include "disjoint_ds.h"
+#include "disjoint_ds.hpp"
 
 DisjointDS::DisjointDS(int num_nodes) {
     arr.resize(num_nodes);

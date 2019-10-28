@@ -61,39 +61,74 @@ public:
     }
 };
 
-/*
- * Implements a very basic graph.
- * Currently, using same base class for both directed & undirected graphs.
- * Data structure used for graph is vector<vector<int>>
- */
-
-class Graph {
-    int V;
-public:
-    static Graph createSampleGraph1();
-    static Graph createDirectedGraph1();
-    Graph(int V); // creates an empty graph
-    Graph(int **arr, int V); // creates a graph from a 2D array
+struct Edge {
+    int src;
+    int dst;
+    int wt;
     
-    void addEdge(int src, int dst, bool is_undirected = true);
-    std::vector< std::vector<int> > graph; // inadvisable but keeping member public as sample class
-    int getVertices() { return V; }
+    bool operator== (const Edge& other) {
+        return (src == other.src && dst == other.dst && wt == other.wt);
+    }
 };
+
 
 class WeightedGraph {
+    template<size_t V>
+    void fill_from_2d_array(int (&arr)[V][V]) {
+        for(int i=0; i<V; ++i) {
+            for(int j=0; j<V; ++j) {
+                if (arr[i][j]) graph[i].push_back({i, j, arr[i][j]});
+            }
+        }
+    }
+    
+protected:
     int V;
-    WeightedGraph(int V);
-    Array2D<int> weighted_graph;
-    
+    vector<vector<Edge>> graph;
+
 public:
-    // For graph pic, visit : https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/
-    static WeightedGraph createSampleGraph1();
-    
-    void addEdge(int src, int dst, int weight, bool is_undirected = true);
+    WeightedGraph(int V) : V(V) {
+        graph.resize(V);
+    }
+    virtual void addEdge(int src, int dst, int weight) = 0;
     int getVertices() { return V; }
-    int ** getGraph() { return weighted_graph.getArray(); }
-    void debugPrintGraph();
+    vector<vector<Edge>> getGraph() { return graph; }
 };
+
+
+class UndirectedWeightedGraph : public WeightedGraph {
+public:
+    UndirectedWeightedGraph(int V) : WeightedGraph(V) { }
+    
+    // initialize undirected weighted graph from 2d array
+    template<size_t V>
+    UndirectedWeightedGraph(int (&arr)[V][V]) : WeightedGraph(V) {
+        if(!is_symmetrical(arr)) throw "Undirected graph should be symmetrical";
+        fill_from_2d_array(arr);
+    }
+    
+    void addEdge(int src, int dst, int wt) {
+        graph[src].push_back({src, dst, wt});
+        if(src != dst) {
+            graph[dst].push_back({dst, src, wt});
+        }
+    }
+};
+
+
+class DirectedWeightedGraph : public WeightedGraph {
+public:
+    DirectedWeightedGraph(int V): WeightedGraph(V) { }
+    
+    // initialize undirected weighted graph from 2d array
+    template<size_t V>
+    DirectedWeightedGraph(int (&arr)[V][V]) : WeightedGraph(V) {
+        fill_from_2d_array(arr);
+    }
+    
+    void addEdge(int src, int dst, int wt);
+};
+
 
 class UnweightedGraph {
     template<size_t V>
