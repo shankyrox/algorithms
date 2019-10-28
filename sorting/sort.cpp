@@ -24,7 +24,7 @@ void bubbleSort(int arr[], int n) {
 
 void heapSort(int arr[], int n) {
     Heap hp(std::vector<int>(arr, arr+n));
-    for(int i=n-1; i>=0; i++) {
+    for(int i=n-1; i>=0; i--) {
         arr[i] = hp.top();
         hp.pop();
     }

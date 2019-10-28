@@ -24,11 +24,11 @@ void Graph::addEdge(int src, int dst, bool is_undirected) {
 
 Graph Graph::createSampleGraph1() {
     Graph g(5);
-    g.addEdge(0, 1);
-    g.addEdge(1, 2);
-    g.addEdge(1, 3);
-    g.addEdge(0, 4);
-    g.addEdge(3, 4);
+//    g.addEdge(0, 1);
+//    g.addEdge(1, 2);
+//    g.addEdge(1, 3);
+//    g.addEdge(0, 4);
+//    g.addEdge(3, 4);
     return g;
 }
 
