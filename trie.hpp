@@ -23,7 +23,8 @@ class Trie {
 public:
     Trie();
     void insert(const string& s);
-    bool find_string(const string& s);
+    bool find_prefix(const string& s); // returns true if this prefix matches with any string in trie
+    bool find_string(const string& s); // returns true only if complete string matches
 };
 
 #endif /* trie_h */

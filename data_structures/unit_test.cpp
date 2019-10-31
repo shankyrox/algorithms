@@ -12,6 +12,7 @@
 #include "segment_tree.h"
 #include "disjoint_ds.hpp"
 #include "trie.hpp"
+#include "fenwick_tree.hpp"
 
 TEST_CASE("Test functionality of SegmentTrees", "[SegmentTree]") {
     SegmentTree st(std::vector<int>{1, 3, 5, 7, 9, 11});
@@ -69,17 +70,42 @@ TEST_CASE("Disjoint Data Structures functionality test", "[DijsointDS]") {
     }
 }
 
-TEST_CASE("Tests functionality of Trie") {
+TEST_CASE("Trie functionality test") {
     Trie trie;
     
     SECTION("Returns true if string present in trie") {
+        trie.insert("hell");
         trie.insert("hello");
-        REQUIRE(trie.find_string("hell") == true);
+        REQUIRE(trie.find_prefix("hell") == true);
+        REQUIRE(trie.find_prefix("hello") == true);
     }
     
     SECTION("Returns false if string not present in trie") {
+        REQUIRE(trie.find_prefix("hell") == false);
+        trie.insert("hell");
+        REQUIRE(trie.find_prefix("hello") == false);
+    }
+    
+    SECTION("Returns correct value for find_string") {
+        trie.insert("hello");
         REQUIRE(trie.find_string("hell") == false);
         trie.insert("hell");
-        REQUIRE(trie.find_string("hello") == false);
+        REQUIRE(trie.find_string("hell") == true);
+    }
+}
+
+TEST_CASE("Fenwick Tree functionality test") {
+    vector<int> arr = {2, 1, 1, 3, 2, 3, 4, 5, 6, 7, 8, 9};
+    BIT bit(arr);
+    
+    SECTION("Returns correct sum of first n values") {
+        REQUIRE(bit.getSum(5) == 12);
+        REQUIRE(bit.getSum(2) == 4);
+    }
+    
+    SECTION("Returns correct sum after update operation") {
+        bit.update(3, 6);
+        REQUIRE(bit.getSum(2) == 4);
+        REQUIRE(bit.getSum(5) == 18);
     }
 }

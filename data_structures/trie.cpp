@@ -28,11 +28,20 @@ void Trie::insert(const string& s) {
     curr_node->isLeaf = true;
 }
 
-bool Trie::find_string(const string &s) {
+bool Trie::find_prefix(const string &s) {
     TrieNode* curr_node = root.get();
     for(auto ch: s) {
-        if(curr_node->isLeaf == true || curr_node->children.find(ch) == curr_node->children.end()) return false;
+        if(curr_node->children.find(ch) == curr_node->children.end()) return false;
         curr_node = curr_node->children[ch].get();
     }
     return true;
+}
+
+bool Trie::find_string(const string &s) {
+    TrieNode* curr_node = root.get();
+    for(auto ch: s) {
+        if(curr_node->children.find(ch) == curr_node->children.end()) return false;
+        curr_node = curr_node->children[ch].get();
+    }
+    return curr_node->isLeaf;
 }
