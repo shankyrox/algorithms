@@ -10,7 +10,8 @@
 #include "catch.hpp"
 #include "heap.hpp"
 #include "segment_tree.h"
-#include "disjoint_ds.h"
+#include "disjoint_ds.hpp"
+#include "trie.hpp"
 
 TEST_CASE("Test functionality of SegmentTrees", "[SegmentTree]") {
     SegmentTree st(std::vector<int>{1, 3, 5, 7, 9, 11});
@@ -53,7 +54,7 @@ TEST_CASE("Heap functionality test", "Heap") {
 TEST_CASE("Disjoint Data Structures functionality test", "[DijsointDS]") {
     DisjointDS ds(10);
     
-    SECTION("Verify union find operations") {
+    SECTION("Verify union find_string operations") {
         REQUIRE(ds.Find(0, 1) == false);
         ds.Union(1, 2);
         ds.Union(3, 4);
@@ -65,5 +66,20 @@ TEST_CASE("Disjoint Data Structures functionality test", "[DijsointDS]") {
         REQUIRE(ds.Find(0, 8) == false);
         ds.Union(9, 3);
         REQUIRE(ds.Find(8, 4) == true);
+    }
+}
+
+TEST_CASE("Tests functionality of Trie") {
+    Trie trie;
+    
+    SECTION("Returns true if string present in trie") {
+        trie.insert("hello");
+        REQUIRE(trie.find_string("hell") == true);
+    }
+    
+    SECTION("Returns false if string not present in trie") {
+        REQUIRE(trie.find_string("hell") == false);
+        trie.insert("hell");
+        REQUIRE(trie.find_string("hello") == false);
     }
 }

@@ -26,6 +26,7 @@
 		6A69BFD223662BC100BBE616 /* graph_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A69BFD123662BC100BBE616 /* graph_tests.cpp */; };
 		6A69BFD42366BD3E00BBE616 /* bfs_dfs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A69BFD32366BD3E00BBE616 /* bfs_dfs.cpp */; };
 		6A69BFD52366E28F00BBE616 /* disjoint_ds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A69BFCA23660AFB00BBE616 /* disjoint_ds.cpp */; };
+		6A69BFD7236ABE4400BBE616 /* trie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A69BFD6236ABE4400BBE616 /* trie.cpp */; };
 		6AA2221C234E468600C77A13 /* topological_sort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2221B234E468600C77A13 /* topological_sort.cpp */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,8 @@
 		6A69BFCF2366268600BBE616 /* disjoint_ds.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = disjoint_ds.hpp; path = include/data_structures/disjoint_ds.hpp; sourceTree = "<group>"; };
 		6A69BFD123662BC100BBE616 /* graph_tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = graph_tests.cpp; sourceTree = "<group>"; };
 		6A69BFD32366BD3E00BBE616 /* bfs_dfs.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = bfs_dfs.cpp; sourceTree = "<group>"; };
+		6A69BFD6236ABE4400BBE616 /* trie.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = trie.cpp; sourceTree = "<group>"; };
+		6A69BFD8236AC84B00BBE616 /* trie.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = trie.hpp; sourceTree = "<group>"; };
 		6AA2220D234E359F00C77A13 /* graphs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = graphs; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AA22215234E35B600C77A13 /* graph.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = graph.hpp; sourceTree = "<group>"; };
 		6AA2221B234E468600C77A13 /* topological_sort.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = topological_sort.cpp; sourceTree = "<group>"; };
@@ -208,6 +211,7 @@
 				6A69BFB92364B47C00BBE616 /* unit_test.cpp */,
 				6A69BFBD2365D5B300BBE616 /* heap.cpp */,
 				6A69BFCA23660AFB00BBE616 /* disjoint_ds.cpp */,
+				6A69BFD6236ABE4400BBE616 /* trie.cpp */,
 			);
 			path = data_structures;
 			sourceTree = "<group>";
@@ -227,6 +231,7 @@
 				6A69BFCF2366268600BBE616 /* disjoint_ds.hpp */,
 				6A69BFC82365FC9A00BBE616 /* heap.hpp */,
 				6A69BFC92365FC9A00BBE616 /* segment_tree.h */,
+				6A69BFD8236AC84B00BBE616 /* trie.hpp */,
 			);
 			name = data_strucutres;
 			sourceTree = "<group>";
@@ -419,6 +424,7 @@
 				6A69BFB8235E053200BBE616 /* segment_tree.cpp in Sources */,
 				6A69BFBA2364B47C00BBE616 /* unit_test.cpp in Sources */,
 				6A69BFCC23660AFB00BBE616 /* disjoint_ds.cpp in Sources */,
+				6A69BFD7236ABE4400BBE616 /* trie.cpp in Sources */,
 				6A69BFBF2365D5B300BBE616 /* heap.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
