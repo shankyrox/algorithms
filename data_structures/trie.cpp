@@ -48,6 +48,7 @@ bool Trie::search(const string &s) {
 
 
 /* ---------------- CompressedTrie ---------------- */
+// Link to test any code changes : https://leetcode.com/problems/implement-trie-prefix-tree/submissions/
 
 CompressedTrie::CompressedTrie() {
     root = make_unique<CompressedTrieNode>();
