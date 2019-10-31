@@ -76,21 +76,38 @@ TEST_CASE("Trie functionality test") {
     SECTION("Returns true if string present in trie") {
         trie.insert("hell");
         trie.insert("hello");
-        REQUIRE(trie.find_prefix("hell") == true);
-        REQUIRE(trie.find_prefix("hello") == true);
+        REQUIRE(trie.startsWith("hell") == true);
+        REQUIRE(trie.startsWith("hello") == true);
     }
     
     SECTION("Returns false if string not present in trie") {
-        REQUIRE(trie.find_prefix("hell") == false);
+        REQUIRE(trie.startsWith("hell") == false);
         trie.insert("hell");
-        REQUIRE(trie.find_prefix("hello") == false);
+        REQUIRE(trie.startsWith("hello") == false);
     }
     
-    SECTION("Returns correct value for find_string") {
+    SECTION("Returns correct value for search") {
         trie.insert("hello");
-        REQUIRE(trie.find_string("hell") == false);
+        REQUIRE(trie.search("hell") == false);
         trie.insert("hell");
-        REQUIRE(trie.find_string("hell") == true);
+        REQUIRE(trie.search("hell") == true);
+    }
+}
+
+TEST_CASE("Compressed tries functionality test") {
+    CompressedTrie ct;
+    ct.insert("facepalm");
+    ct.insert("face");
+    
+    SECTION("Returns correct value for search") {
+        REQUIRE(ct.search("face") == true);
+        REQUIRE(ct.search("facebook") == false);
+    }
+    
+    SECTION("Returns correct value for prefix") {
+        REQUIRE(ct.startsWith("face") == true);
+        REQUIRE(ct.startsWith("facep") == true);
+        REQUIRE(ct.startsWith("facx") == false);
     }
 }
 

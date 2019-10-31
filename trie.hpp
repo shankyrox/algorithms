@@ -22,9 +22,24 @@ class Trie {
     unique_ptr<TrieNode> root;
 public:
     Trie();
-    void insert(const string& s);
-    bool find_prefix(const string& s); // returns true if this prefix matches with any string in trie
-    bool find_string(const string& s); // returns true only if complete string matches
+    void insert(const string& word);
+    bool startsWith(const string& word); // returns true if this string matches with prefix of any string in trie
+    bool search(const string& word); // returns true only if complete string matches
+};
+
+struct CompressedTrieNode {
+    map<char, unique_ptr<CompressedTrieNode> > children;
+    string edgelabel;
+    bool isLeaf;
+};
+
+class CompressedTrie {
+    unique_ptr<CompressedTrieNode> root;
+public:
+    CompressedTrie();
+    void insert(const string& word);
+    bool search(const string& word) const;
+    bool startsWith(const string& word) const;
 };
 
 #endif /* trie_h */
